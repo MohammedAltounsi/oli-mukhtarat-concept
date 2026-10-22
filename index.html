@@ -1,0 +1,706 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<meta name="robots" content="noindex,nofollow">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مختارات اولي</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@500;600;700&display=swap">
+<style>
+/* layout: storefront concept v5, built on Salla shopping patterns (cart in the header, single-row category tabs, white product cards with add-to-cart, quick-view sheet, cart drawer, review carousel) dressed in the OLI brand (navy + gold + parchment, the client's own palette). One language at a time. Icons: Phosphor (regular), inlined. */
+:root{
+  --navy:#062a39; --navy-2:#0b3447;
+  --gold:#a8824a; --gold-lt:#d4ba8b;
+  --parch:#f3ead8; --parch-2:#e9dcc2; --paper:#f8f5ef;
+  --tn:#ffe4b8; --tn-ink:#003f5f; --white:#ffffff;
+  --ink:#062a39; --mute:rgba(6,42,57,.64); --line:rgba(6,42,57,.11);
+  --on-navy:#f3ede2; --on-navy-mute:rgba(243,237,226,.62); --line-navy:rgba(212,186,139,.2);
+  --ok:#2f6b4a; --warn:#9a5b1f;
+  --disp:"Amiri","Noto Naskh Arabic",serif;
+  --body:"IBM Plex Sans Arabic",Tahoma,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --r:10px;
+  color-scheme:light;
+}
+.site[lang="en"]{--disp:"Cormorant Garamond",Garamond,Georgia,serif;--body:"IBM Plex Sans",system-ui,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased}
+.site{font:400 16px/1.7 var(--body)}
+img{max-width:100%;display:block}
+a{color:inherit}
+button{font:inherit;color:inherit}
+.in{max-width:1240px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.ic{width:1.25em;height:1.25em;flex:none;fill:currentColor;display:block}
+.num{font-variant-numeric:tabular-nums}
+
+.ribbon{background:var(--gold);color:var(--navy);font-size:.78rem;font-weight:500;text-align:center;padding-block:6px}
+
+/* header (Salla: menu, logo, cart with badge) */
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--navy);color:var(--on-navy);border-bottom:1px solid var(--line-navy)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:40;background:var(--navy)}
+.bar{display:flex;align-items:center;gap:18px;height:64px}
+.bar .logo{height:24px;width:auto}
+.bar nav{display:flex;gap:26px;margin-inline-start:24px;font-size:.92rem;color:var(--on-navy-mute)}
+.bar nav a{text-decoration:none;transition:color .2s}
+.bar nav a:hover{color:var(--on-navy)}
+.tools-h{margin-inline-start:auto;display:flex;align-items:center;gap:10px}
+.lang{display:flex;border:1px solid var(--line-navy);border-radius:8px;overflow:hidden}
+.lang button{font:500 .78rem/1 "IBM Plex Sans",system-ui,sans-serif;border:0;background:transparent;color:var(--on-navy-mute);padding:10px 11px;cursor:pointer;min-width:38px}
+.lang button[aria-pressed="true"]{background:var(--gold-lt);color:var(--navy)}
+.iconbtn{position:relative;width:42px;height:42px;border-radius:50%;border:0;background:transparent;color:var(--on-navy);display:grid;place-items:center;cursor:pointer}
+.iconbtn:hover{background:rgba(255,255,255,.08)}
+.iconbtn .ic{width:24px;height:24px}
+.badge{position:absolute;top:2px;inset-inline-end:0;min-width:19px;height:19px;padding:0 5px;border-radius:10px;background:var(--gold-lt);color:var(--navy);font:600 .7rem/19px "IBM Plex Sans",sans-serif;text-align:center}
+.badge.pop{animation:pop .4s var(--ease)}
+@keyframes pop{50%{transform:scale(1.35)}}
+.menu{display:none}
+@media (max-width:860px){.bar nav{display:none}.menu{display:grid}.bar{gap:6px}.bar .logo{margin-inline-start:4px}}
+.mnav{display:none;background:var(--navy-2);border-top:1px solid var(--line-navy)}
+.mnav.on{display:block}
+.mnav a{display:block;padding:14px 0;color:var(--on-navy);text-decoration:none;border-bottom:1px solid var(--line-navy)}
+.mnav a:last-child{border-bottom:0}
+
+/* hero */
+.hero{position:relative;background:var(--navy);color:var(--on-navy);overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(640px 480px at var(--gx,25%) 60%,rgba(212,186,139,.16),transparent 65%)}
+.site[dir="rtl"] .hero{--gx:25%} .site[dir="ltr"] .hero{--gx:75%}
+.hero .in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:center;min-height:min(560px,calc(100dvh - 100px));padding-top:44px}
+.kick{color:var(--gold-lt);font-size:.95rem;font-weight:500}
+.sig{font-family:var(--disp);font-weight:700;font-size:clamp(2.4rem,5vw,4.3rem);line-height:1.32;margin:12px 0 0;text-wrap:balance}
+.site[lang="en"] .sig{font-weight:600;line-height:1.06;letter-spacing:-.01em}
+.sig .nm{color:var(--gold-lt)}
+.lede{max-width:42ch;color:var(--on-navy-mute);font-size:1.05rem;margin:18px 0 28px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold-lt);color:var(--navy);font-weight:600;text-decoration:none;padding:14px 24px;border-radius:var(--r);border:0;cursor:pointer;white-space:nowrap;transition:transform .25s var(--ease),background .2s}
+.btn:hover{background:#e2cca2}
+.btn:active{transform:scale(.98)}
+.lineup{position:relative;align-self:end;height:min(500px,60dvh);display:flex;justify-content:center;align-items:flex-end;gap:2%;padding-bottom:36px}
+.lineup::after{content:"";position:absolute;inset-inline:6%;bottom:36px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-lt),transparent);opacity:.55}
+.lineup img{height:var(--h);width:auto;max-width:34%;object-fit:contain;object-position:bottom;filter:drop-shadow(0 30px 28px rgba(0,0,0,.45));animation:rise 1.2s var(--ease) both;animation-delay:var(--dl)}
+@keyframes rise{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+@media (max-width:900px){.hero .in{grid-template-columns:1fr;min-height:0;gap:4px;padding-top:36px}.lineup{height:300px;padding-bottom:24px}.lineup::after{bottom:24px}}
+
+/* feature strip (Salla "why us") */
+.feats{background:var(--white);border-bottom:1px solid var(--line)}
+.feats .in{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;padding-block:22px}
+.feat{display:flex;gap:14px;align-items:center}
+.feat .ib{flex:none;width:46px;height:46px;border-radius:50%;background:var(--parch);color:var(--gold);display:grid;place-items:center}
+.feat .ib .ic{width:24px;height:24px}
+.feat b{display:block;font-weight:600;font-size:.95rem;line-height:1.4}
+.feat span{color:var(--mute);font-size:.84rem;line-height:1.5;display:block}
+@media (max-width:760px){.feats .in{grid-template-columns:1fr;gap:14px}}
+
+/* section titles (Salla: title start, link end) */
+.sec{padding-block:64px}
+.stitle{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:20px}
+.stitle h2{font-family:var(--disp);font-weight:700;font-size:clamp(1.7rem,3.2vw,2.4rem);line-height:1.3;margin:0}
+.site[lang="en"] .stitle h2{font-weight:600;line-height:1.1}
+.stitle .sub{color:var(--mute);font-size:.9rem;margin:2px 0 0}
+
+/* category tabs: one row, single choice */
+.cats{position:sticky;top:calc(64px + env(safe-area-inset-top,0px));z-index:20;background:rgba(248,245,239,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.cats .in{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-block:12px}
+.cats .in::-webkit-scrollbar{display:none}
+.cat{flex:none;display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);background:var(--white);border-radius:999px;padding:8px 16px;font-size:.9rem;cursor:pointer;white-space:nowrap;transition:background .2s,border-color .2s}
+.cat:hover{border-color:rgba(6,42,57,.32)}
+.cat[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.cat small{font-size:.75rem;opacity:.6}
+.cat .flag{width:1.3em;height:.87em}
+.cat i.lc{width:10px;height:10px;border-radius:50%;background:var(--lc)}
+.cats .gap{flex:none;width:1px;background:var(--line);margin-inline:4px}
+
+/* land blocks */
+.land{padding-top:40px;scroll-margin-top:130px}
+.lhead{display:flex;align-items:center;gap:14px;padding-bottom:14px;margin-bottom:18px;border-bottom:2px solid var(--lb)}
+.lhead .flag{width:34px;height:23px}
+.lhead h3{font-family:var(--disp);font-weight:700;font-size:1.8rem;line-height:1.2;margin:0}
+.site[lang="en"] .lhead h3{font-weight:600}
+.lhead p{margin:0;color:var(--mute);font-size:.88rem}
+.lhead .n{margin-inline-start:auto;color:var(--mute);font-size:.86rem;white-space:nowrap}
+.land.it{--lb:var(--navy)} .land.tn{--lb:#f0c98a}
+@media (max-width:620px){.lhead{flex-wrap:wrap;gap:4px 12px}.lhead p{flex-basis:100%;order:3}}
+
+/* product grid + cards */
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+@media (max-width:1060px){.grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:720px){.grid{grid-template-columns:repeat(2,1fr);gap:10px}}
+.pc{position:relative;background:var(--white);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;display:flex;flex-direction:column;min-width:0;transition:box-shadow .3s var(--ease),transform .3s var(--ease)}
+.pc:hover{box-shadow:0 14px 34px -18px rgba(6,42,57,.35);transform:translateY(-2px)}
+.ground{position:relative;display:block;width:100%;aspect-ratio:1/1;border:0;padding:0;cursor:pointer;overflow:hidden;background:radial-gradient(110% 80% at 50% 28%,var(--g1),var(--g) 72%)}
+.ground::after{content:"";position:absolute;left:24%;right:24%;bottom:8%;height:5%;border-radius:50%;background:radial-gradient(closest-side,rgba(0,0,0,.28),transparent);filter:blur(5px)}
+.ground img{position:absolute;left:50%;bottom:10%;transform:translateX(-50%);height:var(--h,74%);width:auto;max-width:78%;object-fit:contain;object-position:bottom;z-index:1;transition:transform .6s var(--ease)}
+.pc:hover .ground img{transform:translateX(-50%) translateY(-6px)}
+.g-oli{--g:#062a39;--g1:#145067}
+.g-bono{--g:#efe9df;--g1:#ffffff}
+.g-tn{--g:#fbd9a4;--g1:#fff3df}
+.tag{position:absolute;top:10px;inset-inline-start:10px;z-index:2;font-size:.72rem;font-weight:600;padding:3px 9px;border-radius:999px;background:var(--white);color:var(--ink)}
+.tag.out{color:var(--warn)} .tag.soon{color:var(--mute)}
+.pb{padding:12px 12px 14px;display:flex;flex-direction:column;gap:8px;flex:1}
+.lnl{display:flex;align-items:center;gap:6px;font-size:.76rem;color:var(--mute);line-height:1.4}
+.lnl i{width:8px;height:8px;border-radius:50%;background:var(--lc);flex:none}
+.pc h4{margin:0;font-size:1rem;font-weight:600;line-height:1.45}
+.pc h4 button{all:unset;cursor:pointer}
+.pc h4 button:focus-visible{outline:2px solid var(--gold);outline-offset:2px}
+.sizes{display:flex;gap:6px;flex-wrap:wrap}
+.sz{border:1px solid var(--line);background:var(--white);border-radius:8px;padding:4px 10px;font-size:.8rem;cursor:pointer;min-height:32px;font-variant-numeric:tabular-nums}
+.sz[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink);font-weight:600}
+.sz.off{color:var(--mute)}
+span.sz{cursor:default}
+.price{margin-top:auto;display:flex;align-items:baseline;gap:6px;flex-wrap:wrap}
+.price b{font-size:1.15rem;font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.price small{color:var(--mute);font-size:.78rem}
+.price .na{font-size:.86rem;font-weight:500;color:var(--mute)}
+.add{display:flex;align-items:center;justify-content:center;gap:6px;width:100%;border:0;border-radius:8px;padding:10px 8px;font-size:.88rem;font-weight:600;cursor:pointer;background:var(--navy);color:var(--on-navy);transition:background .2s,transform .2s}
+.add:hover{background:var(--navy-2)}
+.add:active{transform:scale(.98)}
+.add.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+.add.ghost:hover{box-shadow:inset 0 0 0 1px rgba(6,42,57,.35)}
+.add.done{background:var(--ok)}
+.add .ic{width:18px;height:18px}
+@media (max-width:720px){.pb{padding:10px 10px 12px;gap:7px}.pc h4{font-size:.92rem}.add{font-size:.82rem}}
+.next{margin-top:36px;display:flex;align-items:center;gap:16px;padding:20px 22px;border:1.5px dashed rgba(6,42,57,.26);border-radius:var(--r)}
+.next .plus{flex:none;width:42px;height:42px;border-radius:50%;border:1.5px dashed rgba(6,42,57,.3);display:grid;place-items:center;color:var(--gold)}
+.next b{font-family:var(--disp);font-size:1.3rem;display:block;line-height:1.3}
+.next span{color:var(--mute);font-size:.9rem}
+.empty{padding:60px 20px;text-align:center;color:var(--mute)}
+.fine{margin-top:22px;color:var(--mute);font-size:.82rem}
+.flag{display:inline-block;width:1.35em;height:.9em;flex:none}
+.flag svg{display:block;width:100%;height:100%;border-radius:2px;box-shadow:0 0 0 1px rgba(0,0,0,.12)}
+
+/* sheets: product quick view and cart */
+.scrim{position:fixed;inset:0;background:rgba(6,42,57,.45);opacity:0;pointer-events:none;transition:opacity .35s var(--ease);z-index:50}
+.scrim.on{opacity:1;pointer-events:auto}
+.sheet{position:fixed;top:0;bottom:0;inset-inline-end:0;width:min(480px,100%);background:var(--white);z-index:51;transform:translateX(var(--off));transition:transform .45s var(--ease);display:flex;flex-direction:column}
+.site[dir="rtl"] .sheet{--off:-102%} .site[dir="ltr"] .sheet{--off:102%}
+.sheet.on{transform:none}
+.sheet[hidden]{display:none}
+.sheet .scroll{flex:1;overflow:auto}
+.sheet .foot{border-top:1px solid var(--line);padding:14px 20px calc(14px + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:8px;background:var(--white)}
+.shead{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;border-bottom:1px solid var(--line);padding-top:calc(14px + env(safe-area-inset-top,0px))}
+.shead b{font-size:1.05rem}
+.x{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--white);cursor:pointer;display:grid;place-items:center}
+.x .ic{width:18px;height:18px}
+@media (max-width:720px){
+  .sheet{top:auto;inset-inline:0;width:100%;max-height:92dvh;border-radius:16px 16px 0 0;--off:0;transform:translateY(102%)}
+  .site[dir] .sheet{--off:0}
+  .sheet.on{transform:none}
+  .shead{padding-top:14px}
+}
+#qv .ground{aspect-ratio:auto;height:min(40vh,360px);cursor:default}
+#qv .ground:hover img{transform:translateX(-50%)}
+.qbody{padding:18px 20px 22px;display:flex;flex-direction:column;gap:14px}
+.qbody h3{font-family:var(--disp);font-size:1.8rem;line-height:1.25;margin:0;display:flex;align-items:center;gap:10px}
+.site[lang="en"] .qbody h3{font-weight:600}
+.qbody p{margin:-6px 0 0;color:var(--mute);font-size:.94rem}
+.rows{margin:0;border-top:1px solid var(--line)}
+.row{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:10px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.row dt{color:var(--mute)}
+.row dd{margin:0;font-weight:500;font-variant-numeric:tabular-nums}
+.buy{display:flex;gap:10px;align-items:stretch}
+.qty{display:flex;align-items:center;border:1px solid var(--line);border-radius:8px}
+.qty button{width:40px;height:44px;border:0;background:transparent;cursor:pointer;display:grid;place-items:center}
+.qty button .ic{width:16px;height:16px}
+.qty output{min-width:28px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.buy .add{flex:1;padding:12px}
+.under{font-size:.8rem;color:var(--mute);text-align:center;margin:0}
+.ci{display:grid;grid-template-columns:72px 1fr auto;gap:12px;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line)}
+.ci .ground{aspect-ratio:1;border-radius:8px;cursor:default}
+.ci b{font-weight:600;font-size:.92rem;display:block;line-height:1.4}
+.ci small{color:var(--mute);font-size:.8rem}
+.ci .qty button{width:32px;height:34px}
+.ci .p{font-weight:600;font-size:.92rem;white-space:nowrap;font-variant-numeric:tabular-nums}
+.ci .side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.cempty{padding:60px 24px;text-align:center;color:var(--mute);display:flex;flex-direction:column;align-items:center;gap:12px}
+.cempty .ic{width:48px;height:48px;color:var(--gold)}
+.total{display:flex;justify-content:space-between;font-weight:600}
+.total span:last-child{font-variant-numeric:tabular-nums}
+
+/* questions: quiet list, hairlines only */
+.faq{background:var(--white);border-block:1px solid var(--line)}
+.faq-in{display:grid;grid-template-columns:1fr 1.7fr;gap:64px;align-items:start}
+.faq-h{position:sticky;top:96px}
+.qa details{border-bottom:1px solid var(--line)}
+.qa details:first-child{border-top:1px solid var(--line)}
+.qa summary{list-style:none;cursor:pointer;padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;font-weight:600;font-size:1.02rem;line-height:1.5}
+.qa summary::-webkit-details-marker{display:none}
+.qa summary:hover span:first-child{color:var(--gold)}
+.qa .pm{flex:none;color:var(--gold);transition:transform .3s var(--ease)}
+.qa .pm .ic{width:18px;height:18px}
+.qa details[open] .pm{transform:rotate(45deg)}
+.qa p{margin:-6px 0 22px;color:var(--mute);font-size:.95rem;max-width:60ch;animation:fadeIn .35s var(--ease)}
+@keyframes fadeIn{from{opacity:0;transform:translateY(-4px)}}
+@media (max-width:860px){.faq-in{grid-template-columns:1fr;gap:20px}.faq-h{position:static}}
+
+/* reviews carousel (Salla) */
+.reviews{background:var(--parch)}
+.rtrack{display:grid;grid-auto-flow:column;grid-auto-columns:min(320px,82%);gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:8px;scrollbar-width:thin}
+.rv{scroll-snap-align:start;margin:0;background:var(--white);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px;border:1px solid var(--line)}
+.stars{color:var(--gold);letter-spacing:2px;font-size:.88rem}
+.rv p{margin:0;font-size:.95rem}
+.rv figcaption{margin-top:auto;font-weight:600;font-size:.88rem}
+.rv small{display:block;color:var(--mute);font-weight:400;font-size:.76rem}
+.arrows{display:flex;gap:8px}
+.arrows button{width:38px;height:38px;border-radius:50%;border:1px solid rgba(6,42,57,.2);background:var(--white);cursor:pointer;display:grid;place-items:center}
+.arrows .ic{width:16px;height:16px}
+
+/* signature band */
+.band{position:relative;color:var(--on-navy);text-align:center;overflow:hidden;background:var(--navy)}
+.band .bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.28}
+.band::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,42,57,.6),rgba(6,42,57,.92))}
+.band .in{position:relative;z-index:1;padding-block:100px;display:flex;flex-direction:column;align-items:center;gap:16px}
+.band .seal{width:64px}
+.band .sig{font-size:clamp(2.1rem,5vw,3.8rem);margin:6px 0 0}
+
+/* identity */
+.kgrid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}
+.tile{background:var(--white);border-radius:var(--r);border:1px solid var(--line);padding:24px;min-width:0}
+.tile h3{font-size:.95rem;font-weight:600;margin:0 0 14px}
+.t-logo{grid-column:span 12;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;padding:12px}
+.t-logo div{position:relative;overflow:hidden;border-radius:8px;display:grid;place-items:center;padding:34px 22px;min-height:150px}
+.t-logo .dk{background:var(--navy)} .t-logo .lt{background:var(--parch)}
+.t-logo .ph{background:var(--navy)}
+.t-logo .ph::after{content:"";position:absolute;inset:0;z-index:0;background:rgba(6,42,57,.72)}
+.t-logo .bgp{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover}
+.t-logo img:not(.bgp){position:relative;z-index:1;width:100%;max-width:240px}
+.t-sig{grid-column:span 12;display:flex;flex-direction:column;gap:12px}
+.t-sig .s1{font-family:var(--disp);font-weight:700;font-size:1.6rem;line-height:1.35;margin:0}
+.t-sig ul{margin:auto 0 0;padding-inline-start:18px;color:var(--mute);font-size:.88rem}
+.t-col{grid-column:span 12}
+.sw{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.swc{border:0;text-align:start;cursor:pointer;background:transparent;padding:0;display:flex;flex-direction:column;gap:8px}
+.swc i{display:block;aspect-ratio:1.4;border-radius:8px;background:var(--c);box-shadow:inset 0 0 0 1px rgba(6,42,57,.12)}
+.swc b{font-weight:500;font-size:.9rem}
+.swc span{font:.78rem "IBM Plex Sans",sans-serif;color:var(--mute)}
+@media (max-width:760px){.sw{grid-template-columns:repeat(3,1fr)}}
+.t-type,.t-voice{grid-column:span 6}
+.t-type .s{display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.t-type .s:last-child{border-bottom:0}
+.t-type small{color:var(--mute);font-size:.8rem;white-space:nowrap}
+.t-voice ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;font-size:.92rem}
+.t-voice li{display:flex;gap:10px}
+.t-voice li::before{content:"";flex:none;width:6px;height:6px;margin-top:.7em;background:var(--gold);transform:rotate(45deg)}
+@media (max-width:880px){.t-logo,.t-sig,.t-type,.t-voice{grid-column:span 12}.t-logo{grid-template-columns:1fr}}
+
+footer{background:var(--navy);color:var(--on-navy-mute);font-size:.85rem}
+footer .in{padding-block:30px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;align-items:center}
+footer img{height:22px;width:auto}
+.toast{position:fixed;bottom:calc(18px + env(safe-area-inset-bottom,0px));left:50%;transform:translate(-50%,20px);opacity:0;background:var(--navy);color:var(--on-navy);padding:10px 10px 10px 16px;border-radius:var(--r);font-size:.9rem;transition:all .3s var(--ease);pointer-events:none;z-index:60;display:flex;align-items:center;gap:14px;box-shadow:0 12px 30px -10px rgba(6,42,57,.5);max-width:calc(100% - 32px)}
+.site[dir="rtl"] .toast{padding:10px 16px 10px 10px}
+.toast.on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.toast button{border:0;background:var(--gold-lt);color:var(--navy);font-weight:600;font-size:.84rem;padding:7px 12px;border-radius:8px;cursor:pointer;white-space:nowrap}
+.toast button:empty{display:none}
+.toast span{white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="site" id="site" dir="rtl" lang="ar">
+<div class="ribbon" data-en="Concept for OLI Selections · for approval">تصوّر مقترح لمختارات اولي · للاعتماد</div>
+
+<header>
+  <div class="in bar">
+    <button type="button" class="iconbtn menu" id="menuBtn" aria-expanded="false" aria-controls="mnav" aria-label="Menu" data-ic="list"></button>
+    <img class="logo" src="assets/logo-light.webp" alt="OLI" translate="no">
+    <nav aria-label="Menu">
+      <a href="#shop" data-en="Shop">التشكيلة</a><a href="#faq" data-en="Questions">أسئلة</a><a href="#reviews" data-en="Reviews">آراء العملاء</a><a href="#kit" data-en="Identity">الهوية</a>
+    </nav>
+    <div class="tools-h">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" id="l-ar" data-l="ar" aria-pressed="true">ع</button>
+        <button type="button" id="l-en" data-l="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="iconbtn" id="cartBtn" aria-label="Cart"><span data-ic="handbag"></span><span class="badge" id="badge" hidden>0</span></button>
+    </div>
+  </div>
+  <div class="mnav" id="mnav"><div class="in">
+    <a href="#shop" data-en="Shop">التشكيلة</a><a href="#faq" data-en="Questions">أسئلة</a><a href="#reviews" data-en="Reviews">آراء العملاء</a><a href="#kit" data-en="Identity">الهوية</a>
+  </div></div>
+</header>
+
+<section class="hero">
+  <div class="in">
+    <div>
+      <span class="kick" data-en="OLI Selections">مختارات اولي</span>
+      <h1 class="sig" data-en="Handpicking the finest from its source, <span class=&quot;nm&quot;>OLI</span>"><span class="nm">اولي…</span> ننتقي الأجود من منابعهِ.</h1>
+      <p class="lede" data-en="A Saudi olive oil house. We buy at the source in Italy and Tunisia, and each bottle comes from one source we know.">دار سعودية لزيت الزيتون. نشتري من المنبع في إيطاليا وتونس، وكل قارورة من منبع واحد نعرفه.</p>
+      <a class="btn" href="#shop" data-en="Shop the range">تسوّق التشكيلة</a>
+    </div>
+    <div class="lineup" aria-hidden="true">
+      <img src="assets/bono1l.webp" data-src-en="assets/bono1l.webp" style="--h:78%;--dl:.25s" alt="">
+      <img src="assets/p750.webp" data-src-en="assets/b750-lit.webp" style="--h:96%;--dl:.1s" alt="">
+      <img src="assets/tn500-ar-lit.webp" data-src-en="assets/tn500-en-lit.webp" style="--h:84%;--dl:.4s" alt="">
+    </div>
+  </div>
+</section>
+
+<section class="feats" aria-label="Why OLI">
+  <div class="in">
+    <div class="feat"><span class="ib" data-ic="map-pin-area"></span><div><b data-en="One source per bottle">منبع واحد لكل قارورة</b><span data-en="Italy or Tunisia, named on the label.">إيطاليا أو تونس، واسم الأرض على الملصق.</span></div></div>
+    <div class="feat"><span class="ib" data-ic="drop"></span><div><b data-en="Acidity 0.1 to 0.4%">حموضة ٠٫١ إلى ٠٫٤٪</b><span data-en="For our extra virgin oils, by season.">للبكر الممتاز، حسب الموسم.</span></div></div>
+    <div class="feat"><span class="ib" data-ic="thermometer-cold"></span><div><b data-en="Cold extracted">مستخلص على البارد</b><span data-en="Packed in dark glass or tins.">ومعبّى في زجاج داكن أو تنك.</span></div></div>
+  </div>
+</section>
+
+<section id="shop" style="padding-top:44px">
+  <div class="in">
+    <div class="stitle"><div><h2 data-en="The range">التشكيلة</h2><p class="sub" id="count" aria-live="polite"></p></div></div>
+  </div>
+  <div class="cats"><div class="in" id="cats" role="group" aria-label="Categories"></div></div>
+  <div class="in" style="padding-bottom:64px">
+    <div id="lands"></div>
+    <div class="next">
+      <span class="plus" data-ic="plus" aria-hidden="true"></span>
+      <div><b data-en="Lands to come">أراضي جاية</b><span data-en="We add a land when its oil arrives, and name it then.">نضيف الأرض لما يوصل زيتها، ونسمّيها وقتها.</span></div>
+    </div>
+    <p class="fine" data-en="Prices and stock from the Salla store, 22 Oct 2026. Prices include VAT. Tunisian products are not in the store yet. The cart here is a demo; checkout opens the store.">الأسعار والتوفّر من متجر سلة، ٢٢ أكتوبر ٢٠٢٦، وتشمل الضريبة. المنتجات التونسية لسا ما نزلت المتجر. السلة هنا للعرض، وإتمام الطلب يفتح المتجر.</p>
+  </div>
+</section>
+
+<section class="sec reviews" id="reviews">
+  <div class="in">
+    <div class="stitle"><div><h2 data-en="Customer reviews">آراء العملاء</h2><p class="sub" data-en="From the OLI store, translated from Arabic.">من متجر اولي.</p></div>
+      <div class="arrows"><button type="button" id="rPrev" aria-label="Previous" data-ic="caret-r"></button><button type="button" id="rNext" aria-label="Next" data-ic="caret-l"></button></div></div>
+    <div class="rtrack" id="rtrack"></div>
+  </div>
+</section>
+
+<section class="sec faq" id="faq">
+  <div class="in faq-in">
+    <div class="faq-h">
+      <h2 data-en="Questions about the oil">أسئلة عن الزيت</h2>
+    </div>
+    <div class="qa" id="qa">
+      <details open><summary><span data-en="What does extra virgin mean to you?">وش يعني بكر ممتاز عندكم؟</span><span class="pm" data-ic="plus"></span></summary>
+        <p data-en="Acidity of 0.4% or lower, reaching 0.1% in some seasons. Cold extracted, and oils from different lands are never blended.">حموضة ٠٫٤٪ أو أقل، وتنزل لـ ٠٫١٪ في بعض المواسم. مستخلص على البارد، وما نخلط زيت أرض بزيت أرض.</p></details>
+      <details><summary><span data-en="Filtered or unfiltered?">مُفلتر أو غير مُفلتر؟</span><span class="pm" data-ic="plus"></span></summary>
+        <p data-en="Filtering removes fine particles, so the oil pours clear. Unfiltered keeps the natural olive sediment and a fuller body. Both are extra virgin; they differ in taste and body.">الفلترة تشيل الشوائب الدقيقة فيطلع الزيت صافي. وغير المُفلتر يحتفظ ببقايا الزيتون الطبيعية وقوام أثقل. الاثنين بكر ممتاز، والفرق في الطعم والقوام.</p></details>
+      <details><summary><span data-en="Why does the flavour differ between oils?">ليش يختلف الطعم من زيت لزيت؟</span><span class="pm" data-ic="plus"></span></summary>
+        <p data-en="Fruitiness, bitterness and the peppery catch in the throat follow the harvest timing, the olive variety, the soil and how the oil was pressed.">الطعم الفاكهي والمرارة والحرقة الخفيفة في الحلق تتبع وقت الحصاد، وصنف الزيتون، والتربة، وطريقة العصر.</p></details>
+      <details><summary><span data-en="What is olive pomace oil?">وش هو زيت ثفل الزيتون؟</span><span class="pm" data-ic="plus"></span></summary>
+        <p data-en="Oil drawn from the olive pomace, what remains after pressing, blended with extra virgin (75% pomace, 25% extra virgin). It is named olive pomace oil, never olive oil.">زيت يُستخلص من ثفل الزيتون، وهو اللي يبقى بعد العصر، ومخلوط مع بكر ممتاز (٧٥٪ ثفل و٢٥٪ بكر ممتاز). اسمه «زيت ثفل الزيتون»، مو «زيت زيتون».</p></details>
+      <details><summary><span data-en="How should I store it?">كيف أخزّنه؟</span><span class="pm" data-ic="plus"></span></summary>
+        <p data-en="Somewhere cool and dark, with the cap closed. Light and heat change olive oil, which is why ours rests in dark tanks and is packed in dark glass or tins.">في مكان بارد ومعتم، والغطاء مسكّر. الضوء والحرارة يغيّرون الزيت، عشان كذا يرتاح عندنا في خزانات معتمة ويتعبّى في زجاج داكن أو تنك.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="band">
+  <img class="bg" src="assets/service-2.webp" alt="" loading="lazy">
+  <div class="in">
+    <img class="seal" src="assets/seal-gold.webp" alt="">
+    <p class="sig" data-en="Handpicking the finest from its source, <span class=&quot;nm&quot;>OLI</span>"><span class="nm">اولي…</span> ننتقي الأجود من منابعهِ.</p>
+  </div>
+</section>
+
+<section class="sec" id="kit">
+  <div class="in">
+    <div class="stitle"><div><h2 data-en="How OLI shows up everywhere">كيف تظهر اولي في كل مكان</h2><p class="sub" data-en="The same logo, signature and colours on the shop, social, ads and the label.">نفس الشعار والتوقيع والألوان في المتجر، والسوشال، والإعلانات، والملصق.</p></div></div>
+    <div class="kgrid">
+      <div class="tile t-logo">
+        <div class="dk"><img src="assets/logo-light.webp" alt="OLI logo on navy"></div>
+        <div class="lt"><img src="assets/logo-ink.webp" alt="OLI logo on light"></div>
+        <div class="ph"><img class="bgp" src="assets/service-2.webp" alt=""><img src="assets/logo-white.webp" alt="OLI white logo on a photo"></div>
+      </div>
+      <div class="tile t-sig">
+        <h3 data-en="The fixed signature">التوقيع الثابت</h3>
+        <p class="s1" data-en="Handpicking the finest from its source, OLI">اولي… ننتقي الأجود من منابعهِ.</p>
+        <ul>
+          <li data-en="Sits under the logo, worded the same everywhere.">يجي تحت الشعار، بنفس الصيغة في كل مكان.</li>
+          <li data-en="Arabic pages carry the Arabic line only; English pages the English line only.">الصفحة العربية فيها السطر العربي بس، والإنجليزية فيها الإنجليزي بس.</li>
+        </ul>
+      </div>
+      <div class="tile t-col"><h3 data-en="Colours · tap to copy">الألوان · اضغط للنسخ</h3><div class="sw" id="sw"></div></div>
+      <div class="tile t-type">
+        <h3 data-en="Typefaces">الخطوط</h3>
+        <div class="s"><span style="font-family:Amiri,serif;font-weight:700;font-size:1.6rem">ننتقي الأجود</span><small data-en="Amiri · Arabic headings">Amiri · العناوين العربية</small></div>
+        <div class="s"><span style="font-family:'IBM Plex Sans Arabic',sans-serif;font-size:1.05rem">زيت زيتون بكر ممتاز</span><small data-en="IBM Plex Sans Arabic · Arabic text">IBM Plex Sans Arabic · النص العربي</small></div>
+        <div class="s"><span style="font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.4rem" dir="ltr">Handpicking the finest</span><small data-en="Cormorant Garamond · English headings">Cormorant Garamond · العناوين الإنجليزية</small></div>
+      </div>
+      <div class="tile t-voice">
+        <h3 data-en="Wording rules">قواعد الكلام</h3>
+        <ul>
+          <li data-en="One fixed colour per product: OLI Italy navy, Bono white, OLI Tunisia cream.">لون ثابت لكل منتج: اولي إيطاليا كحلي، بونو أبيض، اولي تونس كريمي.</li>
+          <li data-en="Future lands are “lands to come”, never named before they arrive.">الأراضي القادمة اسمها «أراضي جاية»، وما نسمّيها قبل وقتها.</li>
+          <li data-en="No oil is boxed into one use; both Tunisian oils are praised equally.">ما نحصر الزيت في استخدام، ونمدح الزيتين التونسيين بنفس الدرجة.</li>
+          <li data-en="Pomace blends are named olive pomace oil, never olive oil.">زيت الثفل اسمه «زيت ثفل الزيتون»، مو «زيت زيتون».</li>
+          <li data-en="No health claims, and never “the best in the world”.">بدون ادعاءات صحية، وبدون «الأفضل في العالم».</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="in">
+    <img src="assets/logo-white.webp" alt="OLI">
+    <span data-en="Concept, not live. Photos show the current packs.">تصوّر مقترح، غير مطبق. الصور للعبوات الحالية.</span>
+  </div>
+</footer>
+
+<div class="scrim" id="scrim"></div>
+<aside class="sheet" id="qv" role="dialog" aria-modal="true" aria-labelledby="qName" hidden>
+  <div class="shead"><b id="qTitle"></b><button type="button" class="x" data-close aria-label="Close" data-ic="x"></button></div>
+  <div class="scroll">
+    <div class="ground" id="qGround"><img id="qImg" src="" alt=""></div>
+    <div class="qbody">
+      <span class="lnl" id="qLine"></span>
+      <h3 id="qName"></h3>
+      <p id="qDesc"></p>
+      <div class="sizes" id="qSizes" role="group"></div>
+      <dl class="rows" id="qRows"></dl>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="buy" id="qBuy"></div>
+    <p class="under" id="qUnder"></p>
+  </div>
+</aside>
+<aside class="sheet" id="cart" role="dialog" aria-modal="true" aria-labelledby="cTitle" hidden>
+  <div class="shead"><b id="cTitle"></b><button type="button" class="x" data-close aria-label="Close" data-ic="x"></button></div>
+  <div class="scroll" id="cList"></div>
+  <div class="foot" id="cFoot"></div>
+</aside>
+<div class="toast" id="toast" role="status"><span id="tMsg"></span><button type="button" id="tAct"></button></div>
+</div>
+
+<script>
+/* Phosphor icons (regular), inlined */
+const IC={"bell":"M221.8,175.94C216.25,166.38,208,139.33,208,104a80,80,0,1,0-160,0c0,35.34-8.26,62.38-13.81,71.94A16,16,0,0,0,48,200H88.81a40,40,0,0,0,78.38,0H208a16,16,0,0,0,13.8-24.06ZM128,216a24,24,0,0,1-22.62-16h45.24A24,24,0,0,1,128,216ZM48,184c7.7-13.24,16-43.92,16-80a64,64,0,1,1,128,0c0,36.05,8.28,66.73,16,80Z","caret-left":"M165.66,202.34a8,8,0,0,1-11.32,11.32l-80-80a8,8,0,0,1,0-11.32l80-80a8,8,0,0,1,11.32,11.32L91.31,128Z","caret-right":"M181.66,133.66l-80,80a8,8,0,0,1-11.32-11.32L164.69,128,90.34,53.66a8,8,0,0,1,11.32-11.32l80,80A8,8,0,0,1,181.66,133.66Z","drop":"M174,47.75a254.19,254.19,0,0,0-41.45-38.3,8,8,0,0,0-9.18,0A254.19,254.19,0,0,0,82,47.75C54.51,79.32,40,112.6,40,144a88,88,0,0,0,176,0C216,112.6,201.49,79.32,174,47.75ZM128,216a72.08,72.08,0,0,1-72-72c0-57.23,55.47-105,72-118,16.53,13,72,60.75,72,118A72.08,72.08,0,0,1,128,216Zm55.89-62.66a57.6,57.6,0,0,1-46.56,46.55A8.75,8.75,0,0,1,136,200a8,8,0,0,1-1.32-15.89c16.57-2.79,30.63-16.85,33.44-33.45a8,8,0,0,1,15.78,2.68Z","handbag":"M239.89,198.12l-14.26-120a16,16,0,0,0-16-14.12H176a48,48,0,0,0-96,0H46.33a16,16,0,0,0-16,14.12l-14.26,120A16,16,0,0,0,20,210.6a16.13,16.13,0,0,0,12,5.4H223.92A16.13,16.13,0,0,0,236,210.6,16,16,0,0,0,239.89,198.12ZM128,32a32,32,0,0,1,32,32H96A32,32,0,0,1,128,32ZM32,200,46.33,80H80v24a8,8,0,0,0,16,0V80h64v24a8,8,0,0,0,16,0V80h33.75l14.17,120Z","list":"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128ZM40,72H216a8,8,0,0,0,0-16H40a8,8,0,0,0,0,16ZM216,184H40a8,8,0,0,0,0,16H216a8,8,0,0,0,0-16Z","map-pin-area":"M112,80a16,16,0,1,1,16,16A16,16,0,0,1,112,80ZM64,80a64,64,0,0,1,128,0c0,59.95-57.58,93.54-60,94.95a8,8,0,0,1-7.94,0C121.58,173.54,64,140,64,80Zm16,0c0,42.2,35.84,70.21,48,78.5,12.15-8.28,48-36.3,48-78.5a48,48,0,0,0-96,0Zm122.77,67.63a8,8,0,0,0-5.54,15C213.74,168.74,224,176.92,224,184c0,13.36-36.52,32-96,32s-96-18.64-96-32c0-7.08,10.26-15.26,26.77-21.36a8,8,0,0,0-5.54-15C29.22,156.49,16,169.41,16,184c0,31.18,57.71,48,112,48s112-16.82,112-48C240,169.41,226.78,156.49,202.77,147.63Z","minus":"M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z","package":"M223.68,66.15,135.68,18a15.88,15.88,0,0,0-15.36,0l-88,48.17a16,16,0,0,0-8.32,14v95.64a16,16,0,0,0,8.32,14l88,48.17a15.88,15.88,0,0,0,15.36,0l88-48.17a16,16,0,0,0,8.32-14V80.18A16,16,0,0,0,223.68,66.15ZM128,32l80.34,44-29.77,16.3-80.35-44ZM128,120,47.66,76l33.9-18.56,80.34,44ZM40,90l80,43.78v85.79L40,175.82Zm176,85.78h0l-80,43.79V133.82l32-17.51V152a8,8,0,0,0,16,0V107.55L216,90v85.77Z","plus":"M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z","thermometer-cold":"M248.91,77.72l-20,6.49,12.34,17a8,8,0,1,1-12.94,9.4L216,93.61l-12.34,17a8,8,0,0,1-12.94-9.4l12.34-17-20-6.49A8,8,0,0,1,188,62.5L208,69V48a8,8,0,0,1,16,0V69l20-6.49a8,8,0,0,1,4.95,15.22ZM152,184a32,32,0,1,1-40-31V120a8,8,0,0,1,16,0v33A32.06,32.06,0,0,1,152,184Zm-16,0a16,16,0,1,0-16,16A16,16,0,0,0,136,184Zm48,0A64,64,0,1,1,80,134V48a40,40,0,0,1,80,0v86A64.08,64.08,0,0,1,184,184Zm-16,0a48.08,48.08,0,0,0-20.58-39.4A8,8,0,0,1,144,138V48a24,24,0,0,0-48,0v90a8,8,0,0,1-3.42,6.56A48,48,0,1,0,168,184Z","trash":"M216,48H176V40a24,24,0,0,0-24-24H104A24,24,0,0,0,80,40v8H40a8,8,0,0,0,0,16h8V208a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V64h8a8,8,0,0,0,0-16ZM96,40a8,8,0,0,1,8-8h48a8,8,0,0,1,8,8v8H96Zm96,168H64V64H192ZM112,104v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Zm48,0v64a8,8,0,0,1-16,0V104a8,8,0,0,1,16,0Z","x":"M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"};
+const ico=n=>`<svg class="ic" viewBox="0 0 256 256" aria-hidden="true"><path d="${IC[n]}"/></svg>`;
+const FLAG={
+  it:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="10" height="20" fill="#009246"/><rect x="10" width="10" height="20" fill="#fff"/><rect x="20" width="10" height="20" fill="#ce2b37"/></svg>',
+  tn:'<svg viewBox="0 0 30 20" aria-hidden="true"><rect width="30" height="20" fill="#e70013"/><circle cx="15" cy="10" r="5" fill="#fff"/><circle cx="15" cy="10" r="4" fill="#e70013"/><circle cx="16" cy="10" r="3.2" fill="#fff"/><polygon fill="#e70013" points="14.10,10.00 15.63,9.44 15.69,7.81 16.69,9.10 18.26,8.65 17.35,10.00 18.26,11.35 16.69,10.90 15.69,12.19 15.63,10.56"/></svg>'};
+const AR=n=>String(n).replace(/\d/g,d=>"٠١٢٣٤٥٦٧٨٩"[d]).replace(/\./g,"٫");
+let L="ar";
+const t=(a,e)=>L==="ar"?a:e;
+const num=v=>L==="ar"?AR(v):v;
+
+const LINE={ev:["بكر ممتاز","Extra virgin","#c9a96e"],unf:["غير مُفلتر","Unfiltered","#8fa98a"],org:["عضوي","Organic","#5f8f4e"],pom:["زيت ثفل الزيتون","Olive pomace oil","#b58a4f"]};
+const LINEF={ev:["بكر ممتاز","Extra virgin"],unf:["بكر ممتاز غير مُفلتر","Unfiltered extra virgin"],org:["بكر ممتاز عضوي","Organic extra virgin"],pom:["زيت ثفل الزيتون","Olive pomace oil"]};
+const EV=["٠٫١ إلى ٠٫٤٪ حسب الموسم","0.1-0.4% depending on the harvest"];
+const LAND={it:{n:["إيطاليا","Italy"],d:["اولي وبونو. مُفلتر، وغير مُفلتر، وعضوي، وزيت ثفل الزيتون.","OLI and Bono. Filtered, unfiltered, organic, and olive pomace oil."]},
+            tn:{n:["تونس","Tunisia"],d:["اولي تونس: بكر ممتاز، وعضوي، وزيت ثفل الزيتون.","OLI Tunisia: extra virgin, organic, and olive pomace oil."]}};
+const STN={in:["متوفر","In stock"],out:["نفد","Sold out"],soon:["قريباً","Coming soon"]};
+/* product families; each size is one store item. Status and prices from Salla, 22 Oct 2026. price = single unit; pack = only sold as a pack */
+const F=[
+ {k:"olif",n:["اولي مُفلتر","OLI Filtered"],l:"it",ln:"ev",g:"oli",d:["مُفلتر، فيطلع صافي بدون رواسب.","Filtered, so it pours clear with no sediment."],v:[
+   {k:"p750",sz:["٧٥٠ مل","750 ml"],h:"80%",st:"in",price:138},
+   {k:"p4l",sz:["٤ لتر تنكة","4 L tin"],h:"64%",st:"out",pack:[600,"عبوتين","2 tins"]}]},
+ {k:"bonou",n:["بونو غير مُفلتر","Bono Unfiltered"],l:"it",ln:"unf",g:"bono",d:["من بونو الإيطالية، بدون فلترة.","Bono, from Italy. Unfiltered."],v:[
+   {k:"pbono1l",sz:["١ لتر","1 L"],h:"80%",st:"in",price:86.5}]},
+ {k:"oliu",n:["اولي غير مُفلتر","OLI Unfiltered"],l:"it",ln:"unf",g:"oli",d:["يحتفظ ببقايا الزيتون الطبيعية وقوام أثقل.","Keeps the natural olive sediment and a fuller body."],v:[
+   {k:"p250u",sz:["٢٥٠ مل","250 ml"],h:"66%",st:"in",pack:[730,"١٢ عبوة","12 bottles"]}]},
+ {k:"olio",n:["اولي عضوي","OLI Organic"],l:"it",ln:"org",g:"oli",d:["بكر ممتاز عضوي من إيطاليا.","Organic extra virgin from Italy."],v:[
+   {k:"p250o",sz:["٢٥٠ مل","250 ml"],h:"66%",st:"in",pack:[770,"١٢ عبوة","12 bottles"]}]},
+ {k:"bonoo",n:["بونو عضوي","Bono Organic"],l:"it",ln:"org",g:"bono",d:["من بونو الإيطالية، بكر ممتاز عضوي.","Bono, from Italy. Organic extra virgin."],v:[
+   {k:"pbonoorg",sz:["٥٠٠ مل","500 ml"],h:"72%",st:"out"}]},
+ {k:"olipom",n:["اولي · زيت ثفل الزيتون","OLI · Olive pomace oil"],l:"it",ln:"pom",g:"oli",d:["خلطة ٧٥٪ ثفل و٢٥٪ بكر ممتاز.","A blend of 75% pomace and 25% extra virgin."],v:[
+   {k:"p10lpom",sz:["١٠ لتر","10 L"],h:"64%",st:"soon",ac:["أقل من ٠٫٨٪","Below 0.8%"],or:["أوروبا، معبأ في إيطاليا","Europe, packed in Italy"]}]},
+ {k:"tn",n:["اولي تونس","OLI Tunisia"],l:"tn",ln:"ev",g:"tn",d:["بكر ممتاز من تونس، بثلاثة أحجام.","Extra virgin from Tunisia, in three sizes."],v:[
+   {k:"p500tn",sz:["٥٠٠ مل","500 ml"],h:"76%",st:"soon"},
+   {k:"p1ltn",sz:["١ لتر","1 L"],h:"82%",st:"soon"},
+   {k:"p5ltn",sz:["٥ لتر","5 L"],h:"66%",st:"soon"}]},
+ {k:"tno",n:["اولي تونس عضوي","OLI Tunisia Organic"],l:"tn",ln:"org",g:"tn",d:["بكر ممتاز عضوي من تونس، بحجمين.","Organic extra virgin from Tunisia, in two sizes."],v:[
+   {k:"p500o",sz:["٥٠٠ مل","500 ml"],h:"76%",st:"soon"},
+   {k:"p3lo",sz:["٣ لتر","3 L"],h:"66%",st:"soon"}]},
+ {k:"tnpom",n:["اولي تونس · زيت ثفل الزيتون","OLI Tunisia · Olive pomace oil"],l:"tn",ln:"pom",g:"tn",d:["ثفل الزيتون مع بكر ممتاز، بعبوة ٥ لتر.","Olive pomace with extra virgin, in a 5 L pack."],v:[
+   {k:"p5lpom",sz:["٥ لتر","5 L"],h:"66%",st:"soon",ac:["أقل من ١٪","Below 1%"]}]}
+];
+const SEL={};F.forEach(f=>{const i=f.v.findIndex(v=>v.st==="in");SEL[f.k]=i<0?0:i});
+const VAR={};F.forEach(f=>f.v.forEach((v,i)=>VAR[v.k]={f,v,i}));
+const unit=v=>v.price||(v.pack&&v.pack[0]);
+
+const money=v=>{const s=Number.isInteger(v)?String(v):v.toFixed(1);return L==="ar"?AR(s)+" ر.س":"SAR "+s};
+const plural=n=>L==="en"?(n===1?"1 product":n+" products"):n===1?"منتج واحد":n===2?"منتجين":n<=10?AR(n)+" منتجات":AR(n)+" منتج";
+const plSize=n=>L==="en"?(n===1?"1 size":n+" sizes"):n===1?"حجم واحد":n===2?"حجمين":n<=10?AR(n)+" أحجام":AR(n)+" حجم";
+
+const REV=[
+ {n:"Areej Alsafi",a:"الزيت ممتاز ومميز. جربت زيوت ثانية قبل، وهذا أطعم منهم، وأعطى الأكل نكهة رهيبة.",e:"Excellent oil. I've tried others before, and this one tastes better and gave the food a great flavour."},
+ {n:"Ahlam Alzahrani",a:"كل زيت ألذ من الثاني، وأفضلهم بالنسبة لي بونو غير المفلتر. ودايم أطلب من متجر اولي.",e:"Each oil is better than the last, and my favourite is Bono Unfiltered. I always order from the OLI store."},
+ {n:"سارة",a:"سرعة في التوصيل، وجودة المنتجات تهبل، والأهم تواصل المتجر مع الزبون لين استلام الطلب.",e:"Fast delivery, amazing quality, and above all the store keeps in touch until the order arrives."},
+ {n:"عبدالصمد الصيني",a:"شي راقي بمعنى الكلمة، من جودة الزيت ومن فخامة التعبئة وأمانة التغليف.",e:"Truly refined, from the quality of the oil to the elegant bottling and careful packing."},
+ {n:"Talal Musalli",a:"ما شاء الله، تم التوصيل في نفس يوم الطلب. شكراً لكم.",e:"Delivered the same day I ordered. Thank you."},
+ {n:"Baha Jaber",a:"جودة وذوق عالي جداً، أشتري منهم من زمان.",e:"Very high quality and taste. I've been buying from them for a long time."},
+ {n:"Mazin Badawood",a:"منتج ممتاز ومغلّف بطريقة احترافية.",e:"Excellent product, professionally packed."}
+];
+
+/* categories: one choice at a time */
+const CATS=[["all",["الكل","All"]],["it",LAND.it.n],["tn",LAND.tn.n],"|",["now",["متوفر الآن","In stock now"]],...Object.keys(LINE).map(k=>[k,LINE[k]])];
+let cat="all";
+const match=f=>cat==="all"||cat===f.l||cat===f.ln||(cat==="now"&&f.v.some(v=>v.st==="in"));
+
+/* cart: demo only, kept in this browser */
+let CART={};try{CART=JSON.parse(localStorage.getItem("oli-cart")||"{}")}catch(e){}
+const saveCart=()=>{try{localStorage.setItem("oli-cart",JSON.stringify(CART))}catch(e){}};
+const cartN=()=>Object.values(CART).reduce((s,q)=>s+q,0);
+function badge(pop){const b=document.getElementById("badge"),n=cartN();b.hidden=!n;b.textContent=num(n);if(pop){b.classList.remove("pop");void b.offsetWidth;b.classList.add("pop")}}
+function addCart(k,q=1){CART[k]=(CART[k]||0)+q;saveCart();badge(true);
+  toastShow(t("انضاف للسلة","Added to cart"),t("عرض السلة","View cart"),openCart)}
+
+function sizesHTML(f){
+  if(f.v.length<2)return`<div class="sizes"><span class="sz">${t(...f.v[0].sz)}</span></div>`;
+  return`<div class="sizes" role="group" aria-label="${t("الحجم","Size")}">${f.v.map((v,i)=>`<button type="button" class="sz${v.st!=="in"?" off":""}" data-i="${i}" aria-pressed="${SEL[f.k]===i}">${t(...v.sz)}</button>`).join("")}</div>`;
+}
+function priceHTML(v){
+  if(v.st==="soon")return`<span class="na">${t("قريباً في المتجر","Coming soon")}</span>`;
+  if(v.st==="out")return`<span class="na">${t("نفدت الكمية","Sold out")}</span>`;
+  return`<b>${money(unit(v))}</b><small>${v.pack?t(v.pack[1],v.pack[2]):t("شامل الضريبة","incl. VAT")}</small>`;
+}
+function actionHTML(v,big){
+  return v.st==="in"?`<button type="button" class="add" data-add="${v.k}">${ico("plus")}${t("أضف إلى السلة","Add to cart")}</button>`
+    :`<button type="button" class="add ghost" data-notify="${v.k}">${ico("bell")}${t("أعلمني عند التوفر","Notify me")}</button>`;
+}
+function wire(root,f){
+  root.querySelectorAll("[data-add]").forEach(b=>b.onclick=()=>{addCart(b.dataset.add);b.classList.add("done");b.innerHTML=ico("plus")+t("تمت الإضافة","Added");setTimeout(()=>refresh(f),1400)});
+  root.querySelectorAll("[data-notify]").forEach(b=>b.onclick=()=>{const {v}=VAR[b.dataset.notify];toastShow(v.st==="soon"?t("بنعلمك أول ما ينزل المتجر.","We'll tell you when it's in the store."):t("بنعلمك أول ما يرجع.","We'll tell you when it's back."))});
+}
+function card(f){
+  const v=f.v[SEL[f.k]];
+  const a=document.createElement("article");a.className="pc";a.dataset.k=f.k;
+  a.innerHTML=`<button type="button" class="ground g-${f.g}" style="--h:${v.h}" tabindex="-1" aria-hidden="true">
+      ${v.st!=="in"?`<span class="tag ${v.st}">${t(...STN[v.st])}</span>`:""}
+      <img src="assets/${v.k}.webp" alt="" loading="lazy"></button>
+    <div class="pb">
+      <span class="lnl" style="--lc:${LINE[f.ln][2]}"><i></i>${t(...LINEF[f.ln])}</span>
+      <h4><button type="button" class="open">${t(...f.n)}</button></h4>
+      ${sizesHTML(f)}
+      <div class="price">${priceHTML(v)}</div>
+      ${actionHTML(v)}
+    </div>`;
+  a.querySelectorAll(".ground,.open").forEach(b=>b.onclick=()=>openQV(f,a.querySelector(".open")));
+  a.querySelectorAll("button.sz").forEach(b=>b.onclick=()=>{SEL[f.k]=+b.dataset.i;refresh(f);document.querySelector(`.pc[data-k="${f.k}"] .sz[data-i="${b.dataset.i}"]`)?.focus()});
+  wire(a,f);
+  return a;
+}
+function refresh(f){const old=document.querySelector(`.pc[data-k="${f.k}"]`);if(old)old.replaceWith(card(f));if(qvOpen()&&cur===f)fillQV()}
+function render(){
+  const box=document.getElementById("lands");box.innerHTML="";let nf=0,ns=0;
+  ["it","tn"].forEach(l=>{
+    const list=F.filter(f=>f.l===l&&match(f));if(!list.length)return;
+    nf+=list.length;ns+=list.reduce((s,f)=>s+f.v.length,0);
+    const s=document.createElement("div");s.className="land "+l;s.id="land-"+l;
+    s.innerHTML=`<div class="lhead"><i class="flag">${FLAG[l]}</i><h3>${t(...LAND[l].n)}</h3><p>${t(...LAND[l].d)}</p><span class="n">${plural(list.length)}</span></div><div class="grid"></div>`;
+    const g=s.querySelector(".grid");list.forEach(f=>g.appendChild(card(f)));box.appendChild(s);
+  });
+  if(!nf)box.innerHTML=`<p class="empty">${t("ما فيه منتج بهذا التصنيف.","No product in this category.")}</p>`;
+  document.getElementById("count").textContent=`${plural(nf)}${L==="en"?", ":"، "}${plSize(ns)}`;
+}
+function cats(){
+  const n=k=>F.filter(f=>k==="all"||k===f.l||k===f.ln||(k==="now"&&f.v.some(v=>v.st==="in"))).length;
+  const w=document.getElementById("cats");
+  w.innerHTML=CATS.map(c=>c==="|"?`<span class="gap" aria-hidden="true"></span>`:
+    `<button type="button" class="cat" data-c="${c[0]}" aria-pressed="${cat===c[0]}" ${LINE[c[0]]?`style="--lc:${LINE[c[0]][2]}"`:""}>${FLAG[c[0]]?`<i class="flag">${FLAG[c[0]]}</i>`:LINE[c[0]]?'<i class="lc"></i>':""}${t(c[1][0],c[1][1])} <small>${num(n(c[0]))}</small></button>`).join("");
+  w.querySelectorAll(".cat").forEach(b=>b.onclick=()=>{cat=b.dataset.c;cats();render();
+    const top=document.getElementById("shop").getBoundingClientRect().top;if(top<0)document.getElementById("shop").scrollIntoView();
+    b.scrollIntoView({block:"nearest",inline:"nearest"})});
+}
+
+/* sheets */
+const scrim=document.getElementById("scrim"),qv=document.getElementById("qv"),cartS=document.getElementById("cart");
+let cur=null,lastFocus=null;
+const qvOpen=()=>!qv.hidden;
+function openSheet(s,from){lastFocus=from||document.activeElement;[qv,cartS].forEach(o=>{if(o!==s&&!o.hidden){o.classList.remove("on");o.hidden=true}});
+  toast.classList.remove("on");s.hidden=false;requestAnimationFrame(()=>{s.classList.add("on");scrim.classList.add("on")});s.querySelector("[data-close]").focus();document.body.style.overflow="hidden"}
+function closeSheets(){[qv,cartS].forEach(s=>{if(s.hidden)return;s.classList.remove("on");setTimeout(()=>{s.hidden=true},450)});scrim.classList.remove("on");document.body.style.overflow="";lastFocus?.focus?.()}
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=closeSheets);scrim.onclick=closeSheets;
+addEventListener("keydown",e=>{if(e.key==="Escape")closeSheets()});
+let qn=1;
+function fillQV(){
+  const f=cur,v=f.v[SEL[f.k]];
+  document.getElementById("qTitle").textContent=t("تفاصيل المنتج","Product details");
+  const gr=document.getElementById("qGround");gr.className="ground g-"+f.g;gr.style.setProperty("--h",v.h);
+  const im=document.getElementById("qImg");im.src=`assets/${v.k}.webp`;im.alt=`${t(...f.n)} ${t(...v.sz)}`;
+  const ln=document.getElementById("qLine");ln.style.setProperty("--lc",LINE[f.ln][2]);ln.innerHTML=`<i></i>${t(...LINEF[f.ln])}`;
+  document.getElementById("qName").innerHTML=`${t(...f.n)} <i class="flag">${FLAG[f.l]}</i>`;
+  document.getElementById("qDesc").textContent=t(...f.d);
+  const qs=document.getElementById("qSizes");qs.setAttribute("aria-label",t("الحجم","Size"));
+  qs.innerHTML=f.v.length<2?`<span class="sz">${t(...v.sz)}</span>`:f.v.map((x,i)=>`<button type="button" class="sz${x.st!=="in"?" off":""}" data-i="${i}" aria-pressed="${SEL[f.k]===i}">${t(...x.sz)}</button>`).join("");
+  qs.querySelectorAll("button").forEach(b=>b.onclick=()=>{SEL[f.k]=+b.dataset.i;qn=1;refresh(f)});
+  const rows=[[["الأرض","Land"],v.or?t(...v.or):t(...LAND[f.l].n)],[["الحجم","Size"],t(...v.sz)],
+    [["الحموضة","Acidity"],v.ac?t(...v.ac):t(...EV)],[["الاستخلاص","Extraction"],f.ln==="pom"?t("خلطة: ٧٥٪ ثفل و٢٥٪ بكر ممتاز","Blend: 75% pomace, 25% extra virgin"):t("على البارد","Cold extracted")],
+    [["السعر","Price"],v.st==="in"?money(unit(v))+(v.pack?` · ${t(v.pack[1],v.pack[2])}`:""):t(...STN[v.st])]];
+  document.getElementById("qRows").innerHTML=rows.map(([k,x])=>`<div class="row"><dt>${t(...k)}</dt><dd>${x}</dd></div>`).join("");
+  const buy=document.getElementById("qBuy"),un=document.getElementById("qUnder");
+  if(v.st==="in"){
+    buy.innerHTML=`<div class="qty"><button type="button" data-q="1" aria-label="${t("زيادة","More")}">${ico("plus")}</button><output>${num(qn)}</output><button type="button" data-q="-1" aria-label="${t("نقص","Less")}">${ico("minus")}</button></div>
+      <button type="button" class="add" id="qAdd">${t("أضف إلى السلة","Add to cart")} · ${money(+(unit(v)*qn).toFixed(1))}</button>`;
+    buy.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{qn=Math.max(1,Math.min(20,qn+ +b.dataset.q));fillQV()});
+    document.getElementById("qAdd").onclick=()=>{addCart(v.k,qn);qn=1;closeSheets()};
+    un.textContent=v.pack?t(`يُباع ${v.pack[1]}، والسعر شامل الضريبة.`,`Sold as ${v.pack[2]}. Price includes VAT.`):t("السعر شامل الضريبة.","Price includes VAT.");
+  }else{
+    buy.innerHTML=actionHTML(v);wire(buy,f);
+    un.textContent=v.st==="out"?t("يرجع مع الدفعة الجاية.","Back with the next shipment."):f.l==="tn"?t("ينزل المتجر مع وصول الشحنة التونسية.","Arrives in the store with the Tunisian shipment."):t("ينزل المتجر قريباً.","Arrives in the store soon.");
+  }
+}
+function openQV(f,from){cur=f;qn=1;fillQV();openSheet(qv,from)}
+
+function fillCart(){
+  document.getElementById("cTitle").textContent=t("سلة المشتريات","Your cart");
+  const list=document.getElementById("cList"),foot=document.getElementById("cFoot");
+  const ks=Object.keys(CART).filter(k=>VAR[k]&&CART[k]>0);
+  if(!ks.length){list.innerHTML=`<div class="cempty">${ico("handbag")}<b>${t("سلتك فاضية","Your cart is empty")}</b><button type="button" class="btn" id="cShop">${t("تسوّق التشكيلة","Shop the range")}</button></div>`;foot.innerHTML="";
+    document.getElementById("cShop").onclick=()=>{closeSheets();document.getElementById("shop").scrollIntoView()};return}
+  let sum=0;
+  list.innerHTML=ks.map(k=>{const {f,v}=VAR[k],q=CART[k],p=unit(v)*q;sum+=p;
+    return`<div class="ci"><div class="ground g-${f.g}" style="--h:${v.h}"><img src="assets/${k}.webp" alt=""></div>
+      <div><b>${t(...f.n)}</b><small>${t(...v.sz)}${v.pack?` · ${t(v.pack[1],v.pack[2])}`:""}</small></div>
+      <div class="side"><span class="p">${money(+p.toFixed(1))}</span><div class="qty"><button type="button" data-k="${k}" data-q="1" aria-label="${t("زيادة","More")}">${ico("plus")}</button><output>${num(q)}</output><button type="button" data-k="${k}" data-q="-1" aria-label="${q===1?t("حذف","Remove"):t("نقص","Less")}">${ico(q===1?"trash":"minus")}</button></div></div></div>`}).join("");
+  list.querySelectorAll("[data-q]").forEach(b=>b.onclick=()=>{const k=b.dataset.k;CART[k]+= +b.dataset.q;if(CART[k]<=0)delete CART[k];saveCart();badge();fillCart()});
+  foot.innerHTML=`<div class="total"><span>${t("المجموع","Total")}</span><span>${money(+sum.toFixed(1))}</span></div>
+    <p class="under" style="text-align:start">${t("شامل الضريبة. الشحن يُحسب عند إتمام الطلب.","Includes VAT. Shipping is calculated at checkout.")}</p>
+    <a class="btn" href="https://store.naturaloli.com" target="_blank" rel="noopener">${t("إتمام الطلب","Checkout")}</a>`;
+}
+function openCart(){fillCart();openSheet(cartS,document.getElementById("cartBtn"))}
+document.getElementById("cartBtn").onclick=openCart;
+
+/* toast with an optional action */
+const toast=document.getElementById("toast");let tt;
+function toastShow(msg,act,fn){document.getElementById("tMsg").textContent=msg;const b=document.getElementById("tAct");b.textContent=act||"";b.onclick=()=>{toast.classList.remove("on");fn&&fn()};
+  toast.classList.add("on");clearTimeout(tt);tt=setTimeout(()=>toast.classList.remove("on"),3200)}
+
+/* reviews */
+function reviews(){const r=document.getElementById("rtrack");
+  r.innerHTML=REV.map(x=>`<figure class="rv"><span class="stars" aria-label="5/5">★★★★★</span><p>${t(x.a,x.e)}</p><figcaption translate="no">${x.n}${L==="en"?"<small>Translated from Arabic</small>":""}</figcaption></figure>`).join("")}
+const step=d=>{const r=document.getElementById("rtrack");r.scrollBy({left:d*(L==="ar"?-1:1)*(r.firstElementChild.offsetWidth+14),behavior:"smooth"})};
+document.getElementById("rNext").onclick=()=>step(1);document.getElementById("rPrev").onclick=()=>step(-1);
+
+/* swatches */
+const SW=[["كحلي اولي","OLI navy","#062a39"],["ذهبي","Gold","#a8824a"],["ذهبي فاتح","Light gold","#d4ba8b"],["عاجي","Parchment","#f3ead8"],["كريمي تونس","Tunisia cream","#ffe4b8"],["أبيض بونو","Bono white","#ffffff"]];
+function swatches(){const sw=document.getElementById("sw");sw.innerHTML="";
+  SW.forEach(([a,e,h])=>{const b=document.createElement("button");b.type="button";b.className="swc";
+    b.innerHTML=`<i style="--c:${h}"></i><b>${t(a,e)}</b><span>${h}</span>`;
+    b.onclick=async()=>{try{await navigator.clipboard.writeText(h)}catch(err){}toastShow(t("تم النسخ: ","Copied: ")+h)};sw.appendChild(b)})}
+
+/* mobile menu */
+const mb=document.getElementById("menuBtn"),mn=document.getElementById("mnav");
+mb.onclick=()=>{const o=mn.classList.toggle("on");mb.setAttribute("aria-expanded",o)};
+mn.querySelectorAll("a").forEach(a=>a.addEventListener("click",()=>{mn.classList.remove("on");mb.setAttribute("aria-expanded","false")}));
+
+/* static icons */
+function icons(){document.querySelectorAll("[data-ic]").forEach(el=>{let n=el.dataset.ic;
+  if(n==="caret-r"||n==="caret-l"){const right=(n==="caret-r")===(L==="ar");n=right?"caret-right":"caret-left"}
+  el.innerHTML=ico(n)})}
+
+/* language: one at a time */
+const site=document.getElementById("site");
+document.querySelectorAll("[data-en]").forEach(el=>el.dataset.ar=el.innerHTML);
+document.querySelectorAll("img[data-src-en]").forEach(el=>el.dataset.srcAr=el.getAttribute("src"));
+function setLang(l){
+  L=l;site.lang=l;site.dir=l==="ar"?"rtl":"ltr";
+  document.title=l==="ar"?"مختارات اولي":"OLI Selections";
+  document.querySelectorAll("[data-en]").forEach(el=>el.innerHTML=el.dataset[l]);
+  document.querySelectorAll("img[data-src-en]").forEach(el=>el.src=l==="ar"?el.dataset.srcAr:el.dataset.srcEn);
+  document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.l===l?"true":"false"));
+  const lab={menuBtn:["القائمة","Menu"],cartBtn:["السلة","Cart"],rPrev:["السابق","Previous"],rNext:["التالي","Next"]};
+  Object.entries(lab).forEach(([id,v])=>document.getElementById(id).setAttribute("aria-label",t(...v)));
+  document.querySelectorAll("[data-close]").forEach(b=>b.setAttribute("aria-label",t("إغلاق","Close")));
+  icons();cats();render();reviews();swatches();badge();
+  if(qvOpen())fillQV();if(!cartS.hidden)fillCart();
+  try{localStorage.setItem("oli-lang",l)}catch(e){}
+}
+document.querySelectorAll(".lang button").forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+let saved="ar";try{saved=localStorage.getItem("oli-lang")||"ar"}catch(e){}
+setLang(saved==="en"?"en":"ar");
+</script>
